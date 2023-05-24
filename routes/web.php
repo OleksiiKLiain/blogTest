@@ -29,11 +29,19 @@ Route::group($groupData, function () {
         ->names('blog.admin.posts');
 
 });
-Route::group(['prefix' => 'digging_deeper'], function () {
+Route::group(['prefix' => 'digging_deeper','namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('collections', [DiggingDeeperController::class, 'collections'])
 
         ->name('digging_deeper.collections');
+
+    Route::get('process-video', 'DiggingDeeperController@processVideo')
+        ->name('digging_deeper.processVideo');
+
+    Route::get('prepare-catalog', 'DiggingDeeperController@prepareCatalog')
+        ->name('digging_deeper.prepareCatalog');
+
+
 
 });
 Route::get('/', function () {
