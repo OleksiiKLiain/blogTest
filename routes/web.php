@@ -61,3 +61,4 @@ Route::resource('rest', RestTestController::class)->names('restTest');
 Route::group([ 'namespace' => 'App\Http\Controllers\Blog', 'prefix' => 'blog'], function () {
     Route::resource('posts', PostController::class)->names('blog.posts');
 });
+Route::get('api/blog/posts', [\App\Http\Controllers\Api\Blog\PostController::class, 'index']);
